@@ -1,6 +1,8 @@
 package br.com.johnny.forum.repository;
 
 import br.com.johnny.forum.modelo.Topico;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,7 +16,7 @@ public interface TopicoRepository extends JpaRepository<Topico, Long> {
     //colocamos o nome do atributo + o nome do campo que o atributo possui
     //Podemos também utilizar o "_" caso tenhamos um atributo com o mesmo nome do atributo é uma classe e possui um atributo com o mesmo nome
     //assim evitamos ambiguidade.
-    List<Topico> findByCurso_Nome(String nomeCurso);
+    Page<Topico> findByCurso_Nome(String nomeCurso, Pageable paginacao);
 
 
     //Podemos criar um query fora do padrão do spring, seguindo essa forma.
